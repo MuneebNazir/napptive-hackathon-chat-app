@@ -6,10 +6,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
 
-const CHAT_ENGINE_PROJECT_ID = "";
-const CHAT_ENGINE_PRIVATE_KEY = "";
+const CHAT_ENGINE_PROJECT_ID = "ef3f5003-8566-42d2-85b0-30ef81b77b48";
+const CHAT_ENGINE_PRIVATE_KEY = "8ba5f808-9ee4-488a-9adf-ceb0def33a99";
 
 app.post("/signup", async (req, res) => {
+  console.log(req);
   const { username, secret, email, first_name, last_name } = req.body;
 
   // Store a user-copy on Chat Engine!
@@ -46,4 +47,4 @@ app.post("/login", async (req, res) => {
 });
 
 // vvv On port 3001!
-app.listen(3001);
+app.listen(3003);
