@@ -1,0 +1,22 @@
+components:
+    - name: deploy-nodejs-chat-app
+      type: webservice
+      properties:
+        image: qaseemaslam313/node-app
+        cpu: "150m"
+        memory: 256Mi
+        # (Optional) if the application exposes a port
+        ports:
+            - port: 3001
+              expose: true
+        env:
+            # GitHub repo url
+            - name: LAUNCHER_TARGET_REPO
+              value: https://github.com/MuneebNazir/napptive-hackathon-chat-app/tree/main/server-nodejs
+      traits: # Traits section
+        # (Optional) If your application requires to be publicly available to the Internet
+        - type: napptive-ingress
+          properties:
+            #  Port (should match the exposed port on the component)
+            port: 3001
+            path: /
